@@ -65,9 +65,9 @@ def main():
     memory_bank_val.cuda()
 
     # Checkpoint
-    assert os.path.exists(p['pretext_checkpoint'])
-    print(colored('Restart from checkpoint {}'.format(p['pretext_checkpoint']), 'blue'))
-    checkpoint = torch.load(p['pretext_checkpoint'], map_location='cpu')
+    assert os.path.exists(p['pretext/checkpoint'])
+    print(colored('Restart from checkpoint {}'.format(p['pretext/checkpoint']), 'blue'))
+    checkpoint = torch.load(p['pretext/checkpoint'], map_location='cpu')
     model.load_state_dict(checkpoint)
     model.cuda()
     

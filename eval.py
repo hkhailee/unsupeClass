@@ -43,6 +43,10 @@ def main():
 
     # Read model weights
     print(colored('Load model weights ...', 'blue'))
+    import pickle
+    from functools import partial
+    pickle.load = partial(pickle.load, encoding="latin1")
+    pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1") 
     state_dict = torch.load(args.model, map_location='cpu')
 
     if config['setup'] in ['simclr', 'moco', 'selflabel']:
@@ -139,6 +143,9 @@ def visualize_indices(indices, dataset, hungarian_match):
         plt.axis('off')
         plt.imshow(img)
         plt.show()
+
+        plt.savefig(f"conf_matrix{idx}.png") # hmk addition cluster visualization
+        
 
 
 if __name__ == "__main__":

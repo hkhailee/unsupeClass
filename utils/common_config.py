@@ -10,6 +10,8 @@ import torchvision.transforms as transforms
 from data.augment import Augment, Cutout
 from utils.collate import collate_custom
 
+
+
  
 def get_criterion(p):
     if p['criterion'] == 'simclr':
@@ -49,6 +51,10 @@ def get_model(p, pretrain_path=None):
             backbone = resnet18()
 
         elif p['train_db_name'] == 'stl-10':
+            from models.resnet_stl import resnet18
+            backbone = resnet18()
+
+        elif p['train_db_name'] == 'rico_20':
             from models.resnet_stl import resnet18
             backbone = resnet18()
         
@@ -123,6 +129,10 @@ def get_train_dataset(p, transform, to_augmented_dataset=False,
     if p['train_db_name'] == 'cifar-10':
         from data.cifar import CIFAR10
         dataset = CIFAR10(train=True, transform=transform, download=True)
+    
+    elif p['train_db_name'] == 'rico_20':
+        from data.rico_stlmim import RICO20
+        dataset = RICO20(split=split, transform=transform)
 
     elif p['train_db_name'] == 'cifar-20':
         from data.cifar import CIFAR20
@@ -166,6 +176,10 @@ def get_val_dataset(p, transform=None, to_neighbors_dataset=False):
     elif p['val_db_name'] == 'cifar-20':
         from data.cifar import CIFAR20
         dataset = CIFAR20(train=False, transform=transform, download=True)
+
+    elif p['val_db_name'] == 'rico_20':
+        from data.rico_stlmim import RICO20
+        dataset = RICO20(split='test', transform=transform)
 
     elif p['val_db_name'] == 'stl-10':
         from data.stl import STL10

@@ -1,5 +1,4 @@
-""" This file contains a list of packages and their versions that were used to produce the results. """
-  - _libgcc_mutex=0.1=main
+ _libgcc_mutex=0.1=mai:q
   - blas=1.0=mkl
   - bzip2=1.0.8=h7b6447c_0
   - ca-certificates=2020.1.1=0

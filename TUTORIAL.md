@@ -20,7 +20,7 @@ cd  Unsupervised-Classification
 ### Environment
 Activate your python environment containing the packages in the README.md.
 Make sure you have a GPU available (ideally a 1080TI or better) and set $gpu_ids to your desired gpu number(s):
-```bash
+```bashnvcc
 conda activate your_anaconda_env
 export CUDA_VISIBLE_DEVICES=$gpu_ids
 ```

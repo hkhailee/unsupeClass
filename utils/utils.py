@@ -68,6 +68,7 @@ def fill_memory_bank(loader, model, memory_bank):
         memory_bank.update(output, targets)
         if i % 100 == 0:
             print('Fill Memory Bank [%d/%d]' %(i, len(loader)))
+    print("memory bank done")
 
 
 def confusion_matrix(predictions, gt, class_names, output_file=None):

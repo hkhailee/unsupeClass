@@ -87,6 +87,7 @@ class STL10(Dataset):
         if os.path.isfile(class_file):
             with open(class_file) as f:
                 self.classes = f.read().splitlines()
+          
 
         if self.split == 'train': # Added this to be able to filter out fp from neighbors
             self.targets = self.labels

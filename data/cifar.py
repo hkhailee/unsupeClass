@@ -149,7 +149,6 @@ class CIFAR10(Dataset):
 
 class CIFAR20(CIFAR10):
     """CIFAR20 Dataset.
-
     This is a subclass of the `CIFAR10` Dataset.
     """
     base_folder = 'cifar-100-python'

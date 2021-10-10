@@ -52,7 +52,7 @@ def main():
     val_transforms = get_val_transformations(p)
     print('Validation transforms:', val_transforms)
     train_dataset = get_train_dataset(p, train_transforms, to_augmented_dataset=True,
-                                        split='train+unlabeled') # Split is for stl-10
+                                        split='unlabeled') # Split is for stl-10
     val_dataset = get_val_dataset(p, val_transforms) 
     train_dataloader = get_train_dataloader(p, train_dataset)
     val_dataloader = get_val_dataloader(p, val_dataset)
@@ -60,7 +60,7 @@ def main():
     
     # Memory Bank
     print(colored('Build MemoryBank', 'blue'))
-    base_dataset = get_train_dataset(p, val_transforms, split='train') # Dataset w/o augs for knn eval
+    base_dataset = get_train_dataset(p, val_transforms, split='unlabeled') # Dataset w/o augs for knn eval
     base_dataloader = get_val_dataloader(p, base_dataset) 
     memory_bank_base = MemoryBank(len(base_dataset), 
                                 p['model_kwargs']['features_dim'],
