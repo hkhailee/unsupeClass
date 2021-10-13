@@ -4,7 +4,7 @@ Licensed under the CC BY-NC 4.0 license (https://creativecommons.org/licenses/by
 """
 import argparse
 import os
-import torch
+import torch # 
 import numpy as np
 
 from utils.config import create_config
@@ -49,7 +49,7 @@ def main():
     print(colored('Retrieve dataset', 'blue'))
     train_transforms = get_train_transformations(p)
     print('Train transforms:', train_transforms)
-    val_transforms = get_val_transformations(p)
+    val_transforms = get_val_transformations(p)  #something might be happening here
     print('Validation transforms:', val_transforms)
     train_dataset = get_train_dataset(p, train_transforms, to_augmented_dataset=True,
                                         split='unlabeled') # Split is for stl-10

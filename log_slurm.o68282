@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/bsuscratch/hkiesecker/imageClassification/US/simclr.py", line 10, in <module>
+    from utils.config import create_config
+  File "/bsuscratch/hkiesecker/imageClassification/US/utils/config.py", line 8, in <module>
+    from utils.utils import mkdir_if_missing
+  File "/bsuscratch/hkiesecker/imageClassification/US/utils/utils.py", line 59, in <module>
+    @torch.no_grad()
+AttributeError: module 'torch' has no attribute 'no_grad'
